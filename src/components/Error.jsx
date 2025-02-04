@@ -6,7 +6,7 @@ function Error() {
   console.log(error);
 
   return (
-    <div>
+    <div className="text-center mt-4">
       <h1>Something went wrong 😢</h1>
       <p>{error.data || error.message}</p>
 

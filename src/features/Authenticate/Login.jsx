@@ -11,26 +11,35 @@ function Login() {
   const isSubmitting = navigation.state === 'submitting';
 
   return (
-    <Form method="POST">
-      <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-        <label className="sm:basis-40">Email</label>
-        <input className="input grow" type="email" name="email" required />
-        {formErrors?.email && (
-          <p className="mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700">
-            {formErrors.email}
-          </p>
-        )}
+      <div className="my-10 px-4 text-center sm:my-16">
+          <h1 className="mb-8  text-xl font-semibold md:text-3xl">
+              LOG
+              <span className="text-yellow-500">IN</span>
+          </h1>
+          <Form method="POST">
+              <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+                  <label className="sm:basis-40">Email</label>
+                  <input className="input grow" type="email" name="email" required />
+                  {formErrors?.email && (
+                      <p className="mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700">
+                          {formErrors.email}
+                      </p>
+                  )}
+              </div>
+
+              <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+                  <label className="sm:basis-40">Password</label>
+                  <input className="input grow" type="password" name="password" required />
+              </div>
+
+              <div className="flex justify-end">
+                  <Button name="login" disabled={isSubmitting} type="primary">
+                      {isSubmitting ? 'Logging in....' : `Login`}
+                  </Button>
+              </div>
+          </Form>
       </div>
 
-      <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-        <label className="sm:basis-40">Password</label>
-        <input className="input grow" type="password" name="password" required />
-      </div>
-
-      <Button disabled={isSubmitting} type="primary">
-        {isSubmitting ? 'Logging in....' : `Login`}
-      </Button>
-    </Form>
   );
 }
 
