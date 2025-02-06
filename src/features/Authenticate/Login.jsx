@@ -1,6 +1,7 @@
 import Button from '../../components/Button';
 import { useNavigation, useActionData, redirect, Form } from 'react-router-dom';
 import { isValidEmail } from '../../utils/helpers'
+import { notification } from "../../lib/utils.ts";
 import { authenticateUser } from '../../services/apiAuth.js';
 import { userInfo } from '../../reducers/userSlice.js';
 import store from "../../store"
@@ -52,8 +53,13 @@ export async function action({ request }) {
   if (Object.keys(errors).length > 0) return errors;
 
   const user = await authenticateUser(data);
-  store.dispatch(userInfo(user))
-
+  if (user.success) {
+      store.dispatch(userInfo(user.data))
+      return redirect(`/dashboard`);
+  } else {
+      notification(user.message, 'error');
+      console.error(user);
+  }
   return redirect(`/`);
 }
 

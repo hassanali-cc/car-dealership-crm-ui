@@ -3,6 +3,8 @@ import DealsList, { loader as dealLoader } from './features/Deal/DealsList.jsx'
 import DealDetail, { loader as dealDetailLoader } from './features/Deal/DealDetail.jsx';
 import CreateUser, { action as createUserAction } from './features/Authenticate/CreateUser';
 import Login, { action as authenticateAction } from './features/Authenticate/Login.jsx';
+import Dashboard from './features/Dashboard/page.tsx';
+import { ToastContainer, Bounce } from 'react-toastify';
 
 // import Home from './components/Home';
 import Error from './components/Error';
@@ -29,6 +31,11 @@ const router = createBrowserRouter([
         element: <ProtectedRoute />, // Protect all nested routes
         children: [
           {
+            path: '/dashboard',
+            element: <Dashboard />,
+            errorElement: <Error />,
+          },
+          {
             path: '/create/user',
             element: <CreateUser />,
             action: createUserAction,
@@ -53,7 +60,24 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />
+  return (
+      <>
+        <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+            transition={Bounce}
+        />
+        <RouterProvider router={router} />
+      </>
+  )
 }
 
 export default App;

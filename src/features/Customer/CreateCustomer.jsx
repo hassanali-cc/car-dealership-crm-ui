@@ -41,7 +41,7 @@ function CreateCustomer() {
             </div>
 
             <Button disabled={isSubmitting} type="primary">
-                {isSubmitting ? 'Creating User....' : `Create User`}
+                {isSubmitting ? 'Creating user....' : `Create User`}
             </Button>
         </Form>
     );

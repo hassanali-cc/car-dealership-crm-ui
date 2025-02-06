@@ -13,10 +13,6 @@ function Button({ children, name, disabled, to, type, onClick }) {
   };
 
   const loginBtnStyle = name === "login" ? { flexGrow: 0.1 } : {};
-  console.log("loginBtnStyle: ", loginBtnStyle);
-  console.log("name: ", name);
-  console.log("onClick: ", onClick);
-
 
   if (to)
     return (

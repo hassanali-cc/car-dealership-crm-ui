@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearInfo } from "../reducers/userSlice.js"
-import Username from './User/Username.jsx'
+import Username from './user/Username.jsx'
 import Button from './Button';
 
 function Header() {
