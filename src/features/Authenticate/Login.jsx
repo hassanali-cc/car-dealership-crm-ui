@@ -33,7 +33,8 @@ function Login() {
                   <input className="input grow" type="password" name="password" required />
               </div>
 
-              <div className="flex justify-end">
+              <div className="flex justify-end gap-x-4">
+                  <Button to="/fun" name="fun-cursor" type="secondary">Fun Cursor</Button>
                   <Button name="login" disabled={isSubmitting} type="primary">
                       {isSubmitting ? 'Logging in....' : `Login`}
                   </Button>

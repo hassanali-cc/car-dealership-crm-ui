@@ -3,6 +3,7 @@ import DealsList, { loader as dealLoader } from './features/Deal/DealsList.jsx'
 import DealDetail, { loader as dealDetailLoader } from './features/Deal/DealDetail.jsx';
 import CreateUser, { action as createUserAction } from './features/Authenticate/CreateUser';
 import Login, { action as authenticateAction } from './features/Authenticate/Login.jsx';
+import FunCursor from './features/FunCursor/fun-cursor.jsx';
 import Dashboard from './features/Dashboard/page.tsx';
 import { ToastContainer, Bounce } from 'react-toastify';
 
@@ -17,10 +18,10 @@ const router = createBrowserRouter([
     errorElement: <Error />,
 
     children: [
-      // {
-      //   path: '/',
-      //   element: <Home />,
-      // },
+      {
+        path: '/fun',
+        element: <FunCursor />,
+      },
       {
         path: '/',
         element: <Login />,
